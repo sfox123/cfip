@@ -1,0 +1,12 @@
+{
+  "source": "IWMI Climate-Smart Governance (CSG) Project Tracker, https://csg.iwmi.org/project_tracker.html (Sri Lanka, public charts)",
+  "retrieved": "2026-10-31",
+  "projects": { "all": 131, "adaptation": 66, "mitigation": 29, "crosscutting": 36 },
+  "usd": { "all": 10.26e9, "adaptation": 4.27e9, "mitigation": 2.98e9, "crosscutting": 3.01e9 },
+  "beneficiaries": { "all": 19.99e6, "adaptation": 4.81e6, "mitigation": 14.41e6, "crosscutting": 773e3 },
+  "status": {
+    "adaptation": { "new": 1, "ongoing": 43, "completed": 16 },
+    "mitigation": { "new": 0, "ongoing": 16, "completed": 10 },
+    "crosscutting": { "new": 0, "ongoing": 22, "completed": 11 }
+  }
+}

@@ -18,12 +18,5 @@
     { "id": "tralard", "name": "TRALARD – Transforming Landscapes for Resilience and Development", "funder": "World Bank", "instrument": "Loan-financed programme", "theme": "Landscapes / NRM", "coverage": ["Eastern", "Muchinga", "Central", "Lusaka"], "p": 0.5, "range": [0.5, 2] },
     { "id": "aiccra", "name": "AICCRA Zambia – climate information services", "funder": "CGIAR / World Bank", "instrument": "Technical assistance", "theme": "Climate services", "coverage": { "p": 0.3 }, "range": [0.05, 0.3] },
     { "id": "dmmu", "name": "DMMU drought relief", "funder": "Government of Zambia", "instrument": "Disaster response", "theme": "Response", "coverage": "hazard", "range": [0.5, 3] }
-  ],
-  "LKA": [
-    { "id": "criwmp", "name": "Climate Resilience Integrated Water Management Project (CRIWMP)", "funder": "Green Climate Fund / UNDP", "instrument": "Grant", "theme": "Water / irrigation", "coverage": ["North Central Province", "North Western Province", "Northern Province", "Eastern Province"], "p": 0.7, "range": [1, 5] },
-    { "id": "csiap", "name": "Climate Smart Irrigated Agriculture Project (CSIAP)", "funder": "World Bank", "instrument": "Loan-financed programme", "theme": "Water / irrigation", "coverage": ["North Central Province", "Uva Province", "Southern Province", "Eastern Province", "North Western Province"], "p": 0.6, "range": [1.5, 7] },
-    { "id": "aswesuma", "name": "Aswesuma welfare benefit", "funder": "Government of Sri Lanka", "instrument": "Social protection", "theme": "Social protection", "coverage": "all", "range": [3, 12] },
-    { "id": "aaib", "name": "Crop insurance (Agricultural & Agrarian Insurance Board)", "funder": "Government of Sri Lanka", "instrument": "Insurance", "theme": "Risk transfer", "coverage": "all", "range": [0.5, 3] },
-    { "id": "dmc", "name": "DMC drought relief", "funder": "Government of Sri Lanka", "instrument": "Disaster response", "theme": "Response", "coverage": "hazard", "range": [0.5, 4] }
   ]
 }

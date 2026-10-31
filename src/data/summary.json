@@ -30,21 +30,5 @@
       "gap": 12.22
     },
     "demo": true
-  },
-  "LKA": {
-    "iso": "LKA",
-    "country": "Sri Lanka",
-    "districts": 25,
-    "need": 343,
-    "allocated": 150,
-    "gap": 193,
-    "coverage": 43.7,
-    "programmes": 5,
-    "worst": {
-      "name": "Vavuniya",
-      "state": "Northern Province",
-      "gap": 33.29
-    },
-    "demo": true
   }
 }

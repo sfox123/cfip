@@ -265,7 +265,7 @@ export default function FinanceGapExplorer() {
       <aside className="scroll-thin flex w-[330px] shrink-0 flex-col gap-5 overflow-y-auto border-r border-line bg-white p-5">
         <div>
           <div className="text-[11px] font-semibold uppercase tracking-wider text-ink-3">Country</div>
-          <div className="mt-2 grid grid-cols-3 gap-1 rounded-xl bg-paper p-1">
+          <div className="mt-2 grid grid-cols-2 gap-1 rounded-xl bg-paper p-1">
             {COUNTRIES.map((c) => (
               <button
                 key={c.iso}

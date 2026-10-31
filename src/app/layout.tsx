@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 export const metadata: Metadata = {
   title: "Climate Finance Intelligence | IWMI",
   description:
-    "District-level drought risk, finance flows and finance gaps for India and Zambia, plus a knowledge bank of drought and climate-risk tools.",
+    "Where climate hazard risk is high but climate finance is low: Sri Lanka hazard × CSG finance gap, an India/Zambia drought pilot, and a knowledge bank of climate-risk tools.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -40,3 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 public/maplibre-gl-worker.mjs
+
+# hazard download cache (npm run fetch-hazard)
+/data-raw/hazard/.cache/

@@ -4,10 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const LINKS = [
-  { href: "/", label: "Overview" },
-  { href: "/finance-gap", label: "Finance Gap Explorer" },
-  { href: "/knowledge", label: "Knowledge Bank" },
-  { href: "/methodology", label: "Methodology" },
+  { href: "/hazard-finance", label: "Hazard × Finance", also: [] as string[] },
+  { href: "/drought-pilot", label: "Drought pilot", also: ["/finance-gap"] },
+  { href: "/knowledge", label: "Knowledge Bank", also: [] as string[] },
+  { href: "/methodology", label: "Methodology", also: [] as string[] },
 ];
 
 export default function Navbar() {
@@ -15,7 +15,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-white/90 backdrop-blur">
       <div className="mx-auto flex h-14 max-w-[1600px] items-center gap-6 px-5">
-        <Link href="/" className="flex items-center gap-2.5 shrink-0">
+        <Link href="/hazard-finance" className="flex items-center gap-2.5 shrink-0">
           <Logo />
           <div className="leading-tight">
             <div className="text-[15px] font-semibold tracking-tight">Climate Finance Intelligence</div>
@@ -24,7 +24,7 @@ export default function Navbar() {
         </Link>
         <nav className="ml-auto flex items-center gap-1 overflow-x-auto">
           {LINKS.map((l) => {
-            const active = l.href === "/" ? path === "/" : path.startsWith(l.href);
+            const active = [l.href, ...l.also].some((h) => path.startsWith(h));
             return (
               <Link
                 key={l.href}

@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "data": "node scripts/build-data.mjs",
+    "data": "node scripts/build-lka-gap.mjs",
+    "data:hazard": "node scripts/fetch-lka-hazard.mjs",
+    "data:drought": "node scripts/build-data.mjs",
     "copy-worker": "node -e \"require('fs').copyFileSync('node_modules/maplibre-gl/dist/maplibre-gl-worker.mjs','public/maplibre-gl-worker.mjs')\"",
     "predev": "npm run copy-worker",
     "prebuild": "npm run copy-worker"

@@ -1,0 +1,37 @@
+province,hazard,hazard_score,exposure_score,vulnerability_score,source
+Central,drought,0.5523,0.2617,,CHIRPS daily 1991–2025 via IWMI ENSO API: annual rainfall CV + 3-month deficit frequency; exposure SPAM 2020 crop area
+Central,flood,0.7169,0.4474,,CHIRPS daily 1991–2025 via IWMI ENSO API: mean annual max 5-day rain + heavy-rain days (≥30 mm); exposure WorldPop 2026
+Central,landslide,0.8279,0.4474,,SRTM 90 m slope (OpenTopoData) × CHIRPS daily 1991–2025 via IWMI ENSO API max 3-day rain; exposure WorldPop 2026
+Central,water_scarcity,0.4764,0.2617,,CHIRPS daily 1991–2025 via IWMI ENSO API: inverse mean annual rainfall + longest dry spell; exposure SPAM 2020 crop area
+Eastern,drought,0.7982,0.7279,,CHIRPS daily 1991–2025 via IWMI ENSO API: annual rainfall CV + 3-month deficit frequency; exposure SPAM 2020 crop area
+Eastern,flood,0.763,0.3011,,CHIRPS daily 1991–2025 via IWMI ENSO API: mean annual max 5-day rain + heavy-rain days (≥30 mm); exposure WorldPop 2026
+Eastern,landslide,0.1069,0.3011,,SRTM 90 m slope (OpenTopoData) × CHIRPS daily 1991–2025 via IWMI ENSO API max 3-day rain; exposure WorldPop 2026
+Eastern,water_scarcity,0.7253,0.7279,,CHIRPS daily 1991–2025 via IWMI ENSO API: inverse mean annual rainfall + longest dry spell; exposure SPAM 2020 crop area
+North Central,drought,0.8143,1,,CHIRPS daily 1991–2025 via IWMI ENSO API: annual rainfall CV + 3-month deficit frequency; exposure SPAM 2020 crop area
+North Central,flood,0.663,0.2519,,CHIRPS daily 1991–2025 via IWMI ENSO API: mean annual max 5-day rain + heavy-rain days (≥30 mm); exposure WorldPop 2026
+North Central,landslide,0.078,0.2519,,SRTM 90 m slope (OpenTopoData) × CHIRPS daily 1991–2025 via IWMI ENSO API max 3-day rain; exposure WorldPop 2026
+North Central,water_scarcity,0.7752,1,,CHIRPS daily 1991–2025 via IWMI ENSO API: inverse mean annual rainfall + longest dry spell; exposure SPAM 2020 crop area
+North Western,drought,0.6834,0.5437,,CHIRPS daily 1991–2025 via IWMI ENSO API: annual rainfall CV + 3-month deficit frequency; exposure SPAM 2020 crop area
+North Western,flood,0.4728,0.4573,,CHIRPS daily 1991–2025 via IWMI ENSO API: mean annual max 5-day rain + heavy-rain days (≥30 mm); exposure WorldPop 2026
+North Western,landslide,0.0747,0.4573,,SRTM 90 m slope (OpenTopoData) × CHIRPS daily 1991–2025 via IWMI ENSO API max 3-day rain; exposure WorldPop 2026
+North Western,water_scarcity,0.6451,0.5437,,CHIRPS daily 1991–2025 via IWMI ENSO API: inverse mean annual rainfall + longest dry spell; exposure SPAM 2020 crop area
+Northern,drought,1,0.4366,,CHIRPS daily 1991–2025 via IWMI ENSO API: annual rainfall CV + 3-month deficit frequency; exposure SPAM 2020 crop area
+Northern,flood,0.7008,0.1855,,CHIRPS daily 1991–2025 via IWMI ENSO API: mean annual max 5-day rain + heavy-rain days (≥30 mm); exposure WorldPop 2026
+Northern,landslide,0.0508,0.1855,,SRTM 90 m slope (OpenTopoData) × CHIRPS daily 1991–2025 via IWMI ENSO API max 3-day rain; exposure WorldPop 2026
+Northern,water_scarcity,1,0.4366,,CHIRPS daily 1991–2025 via IWMI ENSO API: inverse mean annual rainfall + longest dry spell; exposure SPAM 2020 crop area
+Sabaragamuwa,drought,0.5434,0.1305,,CHIRPS daily 1991–2025 via IWMI ENSO API: annual rainfall CV + 3-month deficit frequency; exposure SPAM 2020 crop area
+Sabaragamuwa,flood,0.852,0.3479,,CHIRPS daily 1991–2025 via IWMI ENSO API: mean annual max 5-day rain + heavy-rain days (≥30 mm); exposure WorldPop 2026
+Sabaragamuwa,landslide,0.7124,0.3479,,SRTM 90 m slope (OpenTopoData) × CHIRPS daily 1991–2025 via IWMI ENSO API max 3-day rain; exposure WorldPop 2026
+Sabaragamuwa,water_scarcity,0.3883,0.1305,,CHIRPS daily 1991–2025 via IWMI ENSO API: inverse mean annual rainfall + longest dry spell; exposure SPAM 2020 crop area
+Southern,drought,0.7151,0.289,,CHIRPS daily 1991–2025 via IWMI ENSO API: annual rainfall CV + 3-month deficit frequency; exposure SPAM 2020 crop area
+Southern,flood,0.7275,0.4204,,CHIRPS daily 1991–2025 via IWMI ENSO API: mean annual max 5-day rain + heavy-rain days (≥30 mm); exposure WorldPop 2026
+Southern,landslide,0.1893,0.4204,,SRTM 90 m slope (OpenTopoData) × CHIRPS daily 1991–2025 via IWMI ENSO API max 3-day rain; exposure WorldPop 2026
+Southern,water_scarcity,0.4846,0.289,,CHIRPS daily 1991–2025 via IWMI ENSO API: inverse mean annual rainfall + longest dry spell; exposure SPAM 2020 crop area
+Uva,drought,0.6337,0.5197,,CHIRPS daily 1991–2025 via IWMI ENSO API: annual rainfall CV + 3-month deficit frequency; exposure SPAM 2020 crop area
+Uva,flood,0.6587,0.2554,,CHIRPS daily 1991–2025 via IWMI ENSO API: mean annual max 5-day rain + heavy-rain days (≥30 mm); exposure WorldPop 2026
+Uva,landslide,0.4314,0.2554,,SRTM 90 m slope (OpenTopoData) × CHIRPS daily 1991–2025 via IWMI ENSO API max 3-day rain; exposure WorldPop 2026
+Uva,water_scarcity,0.5523,0.5197,,CHIRPS daily 1991–2025 via IWMI ENSO API: inverse mean annual rainfall + longest dry spell; exposure SPAM 2020 crop area
+Western,drought,0.6167,0.1918,,CHIRPS daily 1991–2025 via IWMI ENSO API: annual rainfall CV + 3-month deficit frequency; exposure SPAM 2020 crop area
+Western,flood,0.991,1,,CHIRPS daily 1991–2025 via IWMI ENSO API: mean annual max 5-day rain + heavy-rain days (≥30 mm); exposure WorldPop 2026
+Western,landslide,0.1736,1,,SRTM 90 m slope (OpenTopoData) × CHIRPS daily 1991–2025 via IWMI ENSO API max 3-day rain; exposure WorldPop 2026
+Western,water_scarcity,0.3808,0.1918,,CHIRPS daily 1991–2025 via IWMI ENSO API: inverse mean annual rainfall + longest dry spell; exposure SPAM 2020 crop area

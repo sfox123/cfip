@@ -38,7 +38,6 @@ export type CountryData = {
 export const COUNTRIES = [
   { iso: "IND", name: "India", admin1: "State", admin2: "District" },
   { iso: "ZMB", name: "Zambia", admin1: "Province", admin2: "District" },
-  { iso: "LKA", name: "Sri Lanka", admin1: "Province", admin2: "District" },
 ] as const;
 
 export type MetricKey = "gap" | "gapPct" | "dri" | "need" | "allocated" | "hazard" | "exposure" | "vulnerability";

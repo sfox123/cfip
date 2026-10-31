@@ -13,8 +13,9 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const RAW = path.join(ROOT, "data-raw");
 const OUT = path.join(ROOT, "public", "data");
 fs.mkdirSync(OUT, { recursive: true });
@@ -61,19 +62,11 @@ const PRIORS = {
     Copperbelt: [0.38, 0.4, 0.46], "North-Western": [0.36, 0.5, 0.66], Northern: [0.34, 0.6, 0.72],
     Luapula: [0.28, 0.6, 0.78],
   },
-  LKA: {
-    default: [0.35, 0.5, 0.45],
-    "North Central Province": [0.82, 0.78, 0.55], "Northern Province": [0.74, 0.62, 0.66],
-    "Eastern Province": [0.7, 0.66, 0.62], "North Western Province": [0.68, 0.7, 0.5],
-    "Uva Province": [0.62, 0.62, 0.62], "Southern Province": [0.52, 0.55, 0.5],
-    "Central Province": [0.3, 0.5, 0.55], "Sabaragamuwa Province": [0.26, 0.5, 0.52],
-    "Western Province": [0.2, 0.3, 0.3],
-  },
 };
 // baseline agricultural asset/output value per district (USD M), demo range
-const BASELINE = { IND: [180, 1400], ZMB: [18, 140], LKA: [60, 420] };
+const BASELINE = { IND: [180, 1400], ZMB: [18, 140] };
 const NEED_FACTOR = 0.14;
-const ALLOC_SCALE = { IND: 0.42, ZMB: 0.34, LKA: 0.55 }; // demo calibration so typical coverage is 35–60% // share of exposed baseline that a full drought-resilience package would require
+const ALLOC_SCALE = { IND: 0.42, ZMB: 0.34 }; // demo calibration so typical coverage is 35–60% // share of exposed baseline that a full drought-resilience package would require
 
 // ---------- tiny CSV helpers ----------
 function readCsv(file) {
@@ -92,7 +85,8 @@ const writeCsv = (file, rows) => {
 };
 
 // ---------- build ----------
-const COUNTRIES = { IND: "India", ZMB: "Zambia", LKA: "Sri Lanka" };
+// Sri Lanka is built by build-lka-gap.mjs (real CSG finance + hazard data).
+const COUNTRIES = { IND: "India", ZMB: "Zambia" };
 const summary = {};
 
 for (const iso of Object.keys(COUNTRIES)) {

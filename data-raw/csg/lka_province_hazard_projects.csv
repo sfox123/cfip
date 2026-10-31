@@ -1,0 +1,48 @@
+province,hazard,projects
+Central,Flood,13
+Central,Drought,16
+Central,Water scarcity,5
+Central,Landslide,5
+Central,Heatwave,1
+Central,GHG,2
+Eastern,Flood,10
+Eastern,Drought,12
+Eastern,Water scarcity,8
+Eastern,Landslide,2
+Eastern,GHG,2
+Northern,Flood,14
+Northern,Drought,14
+Northern,Water scarcity,6
+Northern,Landslide,2
+Northern,Heatwave,1
+Northern,GHG,5
+Southern,Flood,5
+Southern,Drought,5
+Southern,Water scarcity,4
+Southern,Landslide,3
+Western,Flood,10
+Western,Drought,7
+Western,Water scarcity,2
+Western,Landslide,4
+Western,Heatwave,1
+Western,GHG,2
+North Central,Flood,13
+North Central,Drought,14
+North Central,Water scarcity,12
+North Central,Landslide,3
+North Central,GHG,3
+Uva,Flood,7
+Uva,Drought,10
+Uva,Water scarcity,7
+Uva,Landslide,3
+Uva,GHG,1
+Sabaragamuwa,Flood,8
+Sabaragamuwa,Drought,7
+Sabaragamuwa,Water scarcity,3
+Sabaragamuwa,Landslide,4
+North Western,Flood,10
+North Western,Drought,11
+North Western,Water scarcity,5
+North Western,Landslide,2
+North Western,Heatwave,1
+North Western,GHG,3
