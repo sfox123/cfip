@@ -7,7 +7,7 @@ const W = 520;
 const H = 420;
 const M = { t: 16, r: 18, b: 46, l: 54 };
 const UNDER = "#c94a3a";
-const OVER = "#2c5d9e";
+const OVER = "#0e6f86";
 const STEP = 0.025;
 
 type Label = { x: number; y: number; anchor: "start" | "end" | "middle" };
@@ -53,7 +53,7 @@ export default function QuadrantChart({ provinces, selectedId, onSelect }: { pro
       <svg viewBox={`0 0 ${W} ${H}`} className="h-auto w-full" role="img" aria-label="Scatter of risk share against finance share by province">
         {/* grid */}
         {ticks.map((t) => (
-          <g key={t} className="text-[11px]" fill="#8a87a0">
+          <g key={t} className="text-[11px]" fill="#7f8d88">
             <line x1={x(lo)} x2={x(hi)} y1={y(t)} y2={y(t)} stroke="#eeebe5" />
             <line y1={y(lo)} y2={y(hi)} x1={x(t)} x2={x(t)} stroke="#eeebe5" />
             <text x={M.l - 8} y={y(t) + 4} textAnchor="end">
@@ -70,21 +70,21 @@ export default function QuadrantChart({ provinces, selectedId, onSelect }: { pro
         <text x={x(hi) - 4} y={y(lo) - 8} textAnchor="end" className="text-[11px] font-semibold" fill={UNDER}>
           High risk · low finance
         </text>
-        <text x={x(lo) + 6} y={y(hi) + 14} className="text-[11px]" fill="#8a87a0">
+        <text x={x(lo) + 6} y={y(hi) + 14} className="text-[11px]" fill="#7f8d88">
           Low risk · high finance
         </text>
         {/* parity */}
-        <line x1={x(lo)} y1={y(lo)} x2={x(hi)} y2={y(hi)} stroke="#4b4862" strokeWidth={1.5} strokeDasharray="6 5" />
-        <text transform={`translate(${x(hi) - 6} ${y(hi) + 16}) rotate(-38)`} textAnchor="end" className="text-[11px]" fill="#4b4862">
+        <line x1={x(lo)} y1={y(lo)} x2={x(hi)} y2={y(hi)} stroke="#43554f" strokeWidth={1.5} strokeDasharray="6 5" />
+        <text transform={`translate(${x(hi) - 6} ${y(hi) + 16}) rotate(-38)`} textAnchor="end" className="text-[11px]" fill="#43554f">
           parity
         </text>
         {/* axes */}
-        <line x1={x(lo)} x2={x(hi)} y1={y(lo)} y2={y(lo)} stroke="#8a87a0" />
-        <line x1={x(lo)} x2={x(lo)} y1={y(lo)} y2={y(hi)} stroke="#8a87a0" />
-        <text x={(x(lo) + x(hi)) / 2} y={H - 8} textAnchor="middle" className="text-[12px]" fill="#4b4862">
+        <line x1={x(lo)} x2={x(hi)} y1={y(lo)} y2={y(lo)} stroke="#7f8d88" />
+        <line x1={x(lo)} x2={x(lo)} y1={y(lo)} y2={y(hi)} stroke="#7f8d88" />
+        <text x={(x(lo) + x(hi)) / 2} y={H - 8} textAnchor="middle" className="text-[12px]" fill="#43554f">
           Share of national climate risk
         </text>
-        <text transform={`translate(14 ${(y(lo) + y(hi)) / 2}) rotate(-90)`} textAnchor="middle" className="text-[12px]" fill="#4b4862">
+        <text transform={`translate(14 ${(y(lo) + y(hi)) / 2}) rotate(-90)`} textAnchor="middle" className="text-[12px]" fill="#43554f">
           Share of adaptation + cross-cutting finance
         </text>
 
@@ -96,8 +96,8 @@ export default function QuadrantChart({ provinces, selectedId, onSelect }: { pro
             <g key={p.id} className="cursor-pointer" onMouseEnter={() => setHover(p)} onMouseLeave={() => setHover(null)} onClick={() => onSelect(p.id)}>
               <circle cx={cx} cy={cy} r={14} fill="transparent" />
               <circle cx={cx} cy={cy} r={sel ? 7 : 5.5} fill={p.gap.index > 0 ? UNDER : OVER} stroke="#fff" strokeWidth={2} />
-              {sel && <circle cx={cx} cy={cy} r={11} fill="none" stroke="#4a3aa7" strokeWidth={2} />}
-              <text x={l.x} y={l.y} textAnchor={l.anchor} className={`text-[11.5px] ${sel ? "font-semibold" : ""}`} fill="#1d1b2e">
+              {sel && <circle cx={cx} cy={cy} r={11} fill="none" stroke="#0b5a4b" strokeWidth={2} />}
+              <text x={l.x} y={l.y} textAnchor={l.anchor} className={`text-[11.5px] ${sel ? "font-semibold" : ""}`} fill="#0f2420">
                 {p.name}
               </text>
             </g>
@@ -113,7 +113,7 @@ export default function QuadrantChart({ provinces, selectedId, onSelect }: { pro
           <div className="font-semibold">{hover.name}</div>
           <div>Risk share {pct(hover.risk.share)}</div>
           <div>Finance share {pct(hover.finance.share)}</div>
-          <div className={hover.gap.index > 0 ? "text-coral" : "text-[#2c5d9e]"}>Gap {pp(hover.gap.index)}</div>
+          <div className={hover.gap.index > 0 ? "text-coral" : "text-over"}>Gap {pp(hover.gap.index)}</div>
           <div className="text-ink-3">{QUADRANT[hover.gap.quadrant].label}</div>
         </div>
       )}

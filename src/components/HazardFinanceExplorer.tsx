@@ -38,11 +38,11 @@ const BASE_STYLE = {
   ],
 };
 
-const RISK_RAMP = ["#efedfb", "#d2cbf3", "#ab9fe6", "#8270d6", "#5a47b5", "#33257a"];
-const MONEY_RAMP = ["#e3f5f3", "#b5e3dd", "#7fcdc3", "#47b2a6", "#1f9e93", "#13706a"];
+const RISK_RAMP = ["#ecf4ef", "#c9e2d4", "#97c7ad", "#5fa583", "#2f7d5e", "#0b5a4b"];
+const MONEY_RAMP = ["#e4f5f8", "#b9e4ee", "#84cfe0", "#46bbd4", "#1590ab", "#0e6f86"];
 const MIT_RAMP = ["#f3f1ec", "#e3ddd0", "#cbbfa6", "#ad9c78", "#8a7752", "#5e4f33"];
-// diverging: blue (over-funded / over-targeted) – neutral – coral (underfunded / under-targeted)
-const DIVERGING = ["#2c5d9e", "#7ea3cf", "#e8e6e1", "#f29a7f", "#c94a3a"];
+// diverging: teal (over-funded / over-targeted) – neutral – coral (underfunded / under-targeted)
+const DIVERGING = ["#0e6f86", "#7fc3d4", "#ebe8e1", "#f29a7f", "#c94a3a"];
 
 type Scale = { expr: ExpressionSpecification; stops: string[]; min: string; mid?: string; max: string; title: string };
 
@@ -129,7 +129,7 @@ export default function HazardFinanceExplorer() {
       return (
         `<div style="font-size:13px;font-weight:600">${p.name}</div>` +
         `<div style="margin-top:2px;font-size:12px">${label}: <b>${valueFor(layer, effectiveHazard, p)}</b></div>` +
-        `<div style="font-size:11px;color:#8a87a0">${QUADRANT[p.gap.quadrant].label}</div>`
+        `<div style="font-size:11px;color:#7f8d88">${QUADRANT[p.gap.quadrant].label}</div>`
       );
     };
   }, [byId, layer, effectiveHazard, layerDef]);
@@ -144,6 +144,7 @@ export default function HazardFinanceExplorer() {
   // ---- init map once ----
   useEffect(() => {
     let disposed = false;
+    let ro: ResizeObserver | undefined;
     (async () => {
       const ml = await import("maplibre-gl");
       if (disposed || !mapEl.current) return;
@@ -167,9 +168,9 @@ export default function HazardFinanceExplorer() {
           id: "u-hover",
           type: "line",
           source: "units",
-          paint: { "line-color": "#1d1b2e", "line-width": ["case", ["boolean", ["feature-state", "hover"], false], 1.6, 0] },
+          paint: { "line-color": "#0f2420", "line-width": ["case", ["boolean", ["feature-state", "hover"], false], 1.6, 0] },
         });
-        map.addLayer({ id: "u-selected", type: "line", source: "units", filter: ["==", ["get", "id"], ""], paint: { "line-color": "#4a3aa7", "line-width": 3 } });
+        map.addLayer({ id: "u-selected", type: "line", source: "units", filter: ["==", ["get", "id"], ""], paint: { "line-color": "#0b5a4b", "line-width": 3 } });
         setMapReady(true);
       });
       map.on("mousemove", "u-fill", (e) => {
@@ -193,9 +194,13 @@ export default function HazardFinanceExplorer() {
         if (f) setSelectedId(String(f.id));
       });
       mapRef.current = map;
+      // the canvas can be sized before layout settles (and the detail panel changes the width), so follow the container
+      ro = new ResizeObserver(() => map.resize());
+      ro.observe(mapEl.current);
     })();
     return () => {
       disposed = true;
+      ro?.disconnect();
       mapRef.current?.remove();
       mapRef.current = null;
     };
@@ -241,7 +246,7 @@ export default function HazardFinanceExplorer() {
 
   return (
     <div className="flex flex-col">
-      <div className="flex flex-col lg:h-[calc(100vh-56px)] lg:min-h-155 lg:flex-row">
+      <div className="flex flex-col lg:h-[calc(100vh-63px)] lg:min-h-155 lg:flex-row">
         {/* ---------------- left rail ---------------- */}
         <aside className="scroll-thin flex shrink-0 flex-col gap-5 border-b border-line bg-white p-5 lg:w-82.5 lg:overflow-y-auto lg:border-b-0 lg:border-r">
           <div>
@@ -325,7 +330,7 @@ export default function HazardFinanceExplorer() {
                   >
                     <span className="w-5 text-[11px] text-ink-3 num">{i + 1}</span>
                     <span className="min-w-0 flex-1 truncate">{p.name}</span>
-                    <span className={`text-[13px] font-medium num ${p.gap.index > 0 ? "text-coral" : "text-[#2c5d9e]"}`}>{pp(p.gap.index)}</span>
+                    <span className={`text-[13px] font-medium num ${p.gap.index > 0 ? "text-coral" : "text-over"}`}>{pp(p.gap.index)}</span>
                   </button>
                 </li>
               ))}
@@ -424,7 +429,7 @@ export default function HazardFinanceExplorer() {
                       <td className="py-2 pr-3 font-medium">{p.name}</td>
                       <td className="py-2 pr-3 text-right">{pct(p.risk.share)}</td>
                       <td className="py-2 pr-3 text-right">{pct(p.finance.share)}</td>
-                      <td className={`py-2 pr-3 text-right font-medium ${p.gap.index > 0 ? "text-coral" : "text-[#2c5d9e]"}`}>{pp(p.gap.index)}</td>
+                      <td className={`py-2 pr-3 text-right font-medium ${p.gap.index > 0 ? "text-coral" : "text-over"}`}>{pp(p.gap.index)}</td>
                       <td className="py-2 pr-3 text-right">{usd(p.gap.expected_usd)}</td>
                       <td className="py-2 pr-3 text-right">{usd(p.finance.adj_usd)}</td>
                       <td className="py-2 pr-3 text-right">{usd(p.gap.gap_usd)}</td>

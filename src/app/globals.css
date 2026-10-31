@@ -2,19 +2,23 @@
 
 @theme {
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --color-ink: #1d1b2e;
-  --color-ink-2: #4b4862;
-  --color-ink-3: #8a87a0;
-  --color-paper: #f7f6f2;
-  --color-line: #e6e3dc;
-  --color-brand: #4a3aa7;
-  --color-brand-2: #6c5ce0;
-  --color-brand-soft: #eeebfb;
-  --color-coral: #e8664f;
-  --color-coral-soft: #fdece8;
-  --color-aqua: #1f9e93;
-  --color-aqua-soft: #e3f5f3;
+  --color-ink: #0f2420;
+  --color-ink-2: #43554f;
+  --color-ink-3: #7f8d88;
+  --color-paper: #f6f4ef;
+  --color-line: #e2dfd6;
+  --color-brand: #0b5a4b;
+  --color-brand-2: #12765f;
+  --color-brand-soft: #e3f0ea;
+  --color-coral: #e0573f;
+  --color-coral-soft: #fbe9e4;
+  --color-aqua: #1590ab;
+  --color-aqua-soft: #e4f5f8;
   --color-amber: #e0a12b;
+  --color-water: #46bbd4; /* IWMI cyan */
+  --color-forest: #033529; /* CGIAR deep green */
+  --color-over: #0e6f86; /* above risk share / over-targeted */
+  --color-sand: #efe7d6;
 }
 
 html,
@@ -36,7 +40,7 @@ body {
 .maplibregl-popup-content {
   border-radius: 10px !important;
   padding: 8px 12px !important;
-  box-shadow: 0 6px 24px rgba(29, 27, 46, 0.16) !important;
+  box-shadow: 0 6px 24px rgba(15, 36, 32, 0.16) !important;
   font-family: var(--font-sans);
 }
 .maplibregl-popup-tip {

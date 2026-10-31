@@ -54,10 +54,10 @@ export const METRICS: { key: MetricKey; label: string; short: string; desc: stri
 ];
 
 export const RAMPS = {
-  gap: ["#fde7df", "#f9c2ae", "#f29a7f", "#e8664f", "#c94a3a", "#8f2b27"],
-  surplus: ["#1f9e93", "#9fd8d1"],
-  risk: ["#efedfb", "#d2cbf3", "#ab9fe6", "#8270d6", "#5a47b5", "#33257a"],
-  money: ["#e3f5f3", "#b5e3dd", "#7fcdc3", "#47b2a6", "#1f9e93", "#13706a"],
+  gap: ["#fde7df", "#f9c2ae", "#f29a7f", "#e0573f", "#c94a3a", "#8f2b27"],
+  surplus: ["#1590ab", "#a9dde9"],
+  risk: ["#ecf4ef", "#c9e2d4", "#97c7ad", "#5fa583", "#2f7d5e", "#0b5a4b"],
+  money: ["#e4f5f8", "#b9e4ee", "#84cfe0", "#46bbd4", "#1590ab", "#0e6f86"],
 };
 
 export type Legend = { color: string; label: string }[];
@@ -144,13 +144,13 @@ export const RELATED_TOOLS: Record<string, { name: string; url: string; what: st
 };
 
 export const INSTRUMENT_COLOURS: Record<string, string> = {
-  Insurance: "#4a3aa7",
-  Subsidy: "#8270d6",
-  Grant: "#1f9e93",
-  "Public works": "#47b2a6",
+  Insurance: "#0b5a4b",
+  Subsidy: "#5fa583",
+  Grant: "#1590ab",
+  "Public works": "#46bbd4",
   "Loan-financed programme": "#e0a12b",
-  "Research & extension": "#b5a8ee",
-  "Disaster response": "#e8664f",
+  "Research & extension": "#b7d8c6",
+  "Disaster response": "#e0573f",
   "Social protection": "#f29a7f",
-  "Technical assistance": "#7fcdc3",
+  "Technical assistance": "#84cfe0",
 };

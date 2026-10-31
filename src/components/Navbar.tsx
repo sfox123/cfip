@@ -1,54 +1,69 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import climateAction from "../../public/brand/cgiar-climate-action.png";
 
 const LINKS = [
-  { href: "/hazard-finance", label: "Hazard × Finance", also: [] as string[] },
-  { href: "/drought-pilot", label: "Drought pilot", also: ["/finance-gap"] },
-  { href: "/knowledge", label: "Knowledge Bank", also: [] as string[] },
-  { href: "/methodology", label: "Methodology", also: [] as string[] },
+  { href: "/", label: "Overview" },
+  { href: "/hazard-finance", label: "Hazard × Finance" },
+  { href: "/finance-gap", label: "Drought Explorer" },
+  { href: "/knowledge", label: "Knowledge Bank" },
+  { href: "/methodology", label: "Methodology" },
 ];
 
 export default function Navbar() {
   const path = usePathname();
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-white/90 backdrop-blur">
-      <div className="mx-auto flex h-14 max-w-[1600px] items-center gap-6 px-5">
-        <Link href="/hazard-finance" className="flex items-center gap-2.5 shrink-0">
-          <Logo />
-          <div className="leading-tight">
-            <div className="text-[15px] font-semibold tracking-tight">Climate Finance Intelligence</div>
-            <div className="text-[11px] text-ink-3">IWMI · Water Data for Climate Resilience</div>
-          </div>
+    <header className="sticky top-0 z-40 border-b border-line bg-white/95 backdrop-blur">
+      {/* thin IWMI water stripe */}
+      <div className="h-0.75 bg-[linear-gradient(90deg,var(--color-forest),var(--color-brand-2)_45%,var(--color-water))]" />
+      <div className="mx-auto flex max-w-[1600px] flex-wrap items-center gap-x-5 px-5 pt-2.5 md:h-15 md:flex-nowrap md:pt-0">
+        <Link href="/" className="flex shrink-0 items-center gap-3" aria-label="Climate Finance Intelligence, home">
+          {/* IWMI only publishes a white transparent logo; tint it via a mask so it reads on white */}
+          <span
+            role="img"
+            aria-label="IWMI, International Water Management Institute"
+            className="block h-5 w-36 bg-forest sm:h-6.5 sm:w-47"
+            style={{
+              maskImage: "url(/brand/iwmi-logo-white.png)",
+              WebkitMaskImage: "url(/brand/iwmi-logo-white.png)",
+              maskSize: "contain",
+              WebkitMaskSize: "contain",
+              maskRepeat: "no-repeat",
+              WebkitMaskRepeat: "no-repeat",
+              maskPosition: "left center",
+              WebkitMaskPosition: "left center",
+            }}
+          />
+          <span className="h-8 w-px bg-line" />
+          <Image src={climateAction} alt="CGIAR Climate Action" height={36} className="h-7 w-auto sm:h-9" priority />
+          <span className="hidden h-8 w-px bg-line xl:block" />
+          <span className="hidden leading-tight xl:block">
+            <span className="block text-[14px] font-semibold tracking-tight text-ink">Climate Finance Intelligence</span>
+            <span className="block text-[11px] text-ink-3">Water data for climate resilience</span>
+          </span>
         </Link>
-        <nav className="ml-auto flex items-center gap-1 overflow-x-auto">
+        {/* own row on small screens so the logos keep their space */}
+        <nav className="scroll-thin -mx-2 flex w-full items-center gap-0.5 overflow-x-auto md:mx-0 md:ml-auto md:w-auto">
           {LINKS.map((l) => {
-            const active = [l.href, ...l.also].some((h) => path.startsWith(h));
+            const active = l.href === "/" ? path === "/" : path.startsWith(l.href);
             return (
               <Link
                 key={l.href}
                 href={l.href}
-                className={`whitespace-nowrap rounded-full px-3.5 py-1.5 text-sm transition ${
-                  active ? "bg-brand text-white" : "text-ink-2 hover:bg-brand-soft hover:text-brand"
+                className={`relative whitespace-nowrap px-3 py-2 text-[13.5px] transition ${
+                  active ? "font-semibold text-forest" : "text-ink-2 hover:text-brand"
                 }`}
               >
                 {l.label}
+                <span className={`absolute inset-x-3 -bottom-px h-0.5 rounded-full bg-water transition-opacity ${active ? "opacity-100" : "opacity-0"}`} />
               </Link>
             );
           })}
         </nav>
       </div>
     </header>
-  );
-}
-
-function Logo() {
-  return (
-    <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden>
-      <rect width="32" height="32" rx="8" fill="#4a3aa7" />
-      <path d="M16 6c4 5.2 6.5 8.8 6.5 12.2A6.5 6.5 0 0 1 9.5 18.2C9.5 14.8 12 11.2 16 6Z" fill="#fff" opacity=".95" />
-      <path d="M12.5 19.5h7M14 22.5h4" stroke="#e8664f" strokeWidth="1.8" strokeLinecap="round" />
-    </svg>
   );
 }

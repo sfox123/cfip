@@ -74,7 +74,7 @@ export const LAYERS: { key: LayerKey; group: string; label: string; desc: string
   { key: "risk", group: "Hazard", label: "Climate risk", desc: "∛(hazard × exposure × vulnerability) for the selected hazard, or the mean over all four. Vulnerability is left out until it is loaded." },
   { key: "finance", group: "Finance", label: "Adaptation + cross-cutting share", desc: "Each province's share of CSG adaptation and cross-cutting investment." },
   { key: "mitigation", group: "Finance", label: "Mitigation share (info only)", desc: "Share of CSG mitigation investment. Not used in the gap: mitigation does not reduce local hazard risk." },
-  { key: "gap", group: "Gap", label: "Finance gap index", desc: "Risk share − finance share. Red = underfunded relative to risk; blue = more finance than its risk share." },
+  { key: "gap", group: "Gap", label: "Finance gap index", desc: "Risk share − finance share. Red = underfunded relative to risk; teal = more finance than its risk share." },
   { key: "coverage", group: "Gap", label: "Hazard coverage ratio", desc: "Share of CSG projects targeting the hazard ÷ share of that hazard's risk. Below 1× = under-targeted." },
 ];
 

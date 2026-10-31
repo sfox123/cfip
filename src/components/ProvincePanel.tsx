@@ -39,17 +39,17 @@ export default function ProvincePanel({ p, data, rank, onClose }: { p: Province;
         <div className="grid grid-cols-3 gap-2">
           <Kpi label="Risk share" value={pct(p.risk.share)} />
           <Kpi label="Finance share" value={pct(p.finance.share)} />
-          <Kpi label="Gap index" value={pp(p.gap.index)} tone={p.gap.index > 0 ? "text-coral" : "text-[#2c5d9e]"} />
+          <Kpi label="Gap index" value={pp(p.gap.index)} tone={p.gap.index > 0 ? "text-coral" : "text-over"} />
         </div>
 
         <section>
           <h3 className="text-[13px] font-semibold">Expected vs actual (estimated)</h3>
           <p className="mt-0.5 text-[12px] text-ink-3">Expected = risk share × national adaptation + cross-cutting pool ({usd(data.national.pool_usd)}).</p>
           <div className="mt-3 grid gap-2 text-[12.5px] num">
-            <Bar label="Expected if money followed risk" value={p.gap.expected_usd} max={maxBar} color="#8270d6" />
-            <Bar label="Actual (scaled estimate)" value={p.finance.adj_usd} max={maxBar} color="#1f9e93" />
+            <Bar label="Expected if money followed risk" value={p.gap.expected_usd} max={maxBar} color="#5fa583" />
+            <Bar label="Actual (scaled estimate)" value={p.finance.adj_usd} max={maxBar} color="#1590ab" />
           </div>
-          <div className={`mt-2 text-[13px] font-medium num ${under ? "text-coral" : "text-[#2c5d9e]"}`}>
+          <div className={`mt-2 text-[13px] font-medium num ${under ? "text-coral" : "text-over"}`}>
             {under ? "Underfunded by" : "Above risk share by"} {usd(Math.abs(p.gap.gap_usd))}
             <span className="ml-1 font-normal text-ink-3">relative gap, not a needs estimate</span>
           </div>

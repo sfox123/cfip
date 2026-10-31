@@ -8,9 +8,9 @@
 
 | Route | What it does |
 |---|---|
-| `/` | Redirects to `/hazard-finance` |
+| `/` | Landing page: live Sri Lanka headline numbers, a diagram of how the gap is calculated (sources → risk / finance shares → gap → action), and links to both explorers |
 | `/hazard-finance` | Map with layers for risk (per hazard or overall), finance share, mitigation share (info only), finance gap index and hazard coverage ratio; province panel; risk-vs-finance quadrant chart; ranking table; CSV export |
-| `/drought-pilot`, `/finance-gap` | India/Zambia district drought finance gap (illustrative placeholders) |
+| `/finance-gap` | Drought explorer: India/Zambia district drought finance gap (illustrative placeholders) |
 | `/knowledge` | Curated links to IWMI and external tools; add your own links |
 | `/methodology` | CSG caveats, hazard sources, gap formulas, how to load the CSG project export |
 
@@ -55,4 +55,4 @@ data-raw/
 - `coverage(p,h) = (projects share) / (risk share)` for each hazard
 
 ## Stack
-Next.js 16 (App Router), React 19, Tailwind CSS 4, MapLibre GL 6, lucide-react. Basemap © Esri, © OpenStreetMap contributors; boundaries © geoBoundaries (CC BY 4.0); finance © IWMI CSG Project Tracker.
+Next.js 16 (App Router), React 19, Tailwind CSS 4, MapLibre GL 6, lucide-react. Branding: IWMI and CGIAR Climate Action logos in `public/brand/` (the IWMI logo is white-only and is tinted with a CSS mask). Basemap © Esri, © OpenStreetMap contributors; boundaries © geoBoundaries (CC BY 4.0); finance © IWMI CSG Project Tracker.

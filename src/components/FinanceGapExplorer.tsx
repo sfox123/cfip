@@ -100,6 +100,7 @@ export default function FinanceGapExplorer() {
   // ---- init map once ----
   useEffect(() => {
     let disposed = false;
+    let ro: ResizeObserver | undefined;
     (async () => {
       const ml = await import("maplibre-gl");
       if (disposed || !mapEl.current) return;
@@ -137,14 +138,14 @@ export default function FinanceGapExplorer() {
           id: "a1-line",
           type: "line",
           source: "admin1",
-          paint: { "line-color": "#1d1b2e", "line-opacity": 0.45, "line-width": ["interpolate", ["linear"], ["zoom"], 3, 0.5, 7, 1.6] },
+          paint: { "line-color": "#0f2420", "line-opacity": 0.45, "line-width": ["interpolate", ["linear"], ["zoom"], 3, 0.5, 7, 1.6] },
         });
         map.addLayer({
           id: "d-hover",
           type: "line",
           source: "districts",
           paint: {
-            "line-color": "#1d1b2e",
+            "line-color": "#0f2420",
             "line-width": ["case", ["boolean", ["feature-state", "hover"], false], 1.6, 0],
           },
         });
@@ -153,7 +154,7 @@ export default function FinanceGapExplorer() {
           type: "line",
           source: "districts",
           filter: ["==", ["get", "id"], ""],
-          paint: { "line-color": "#4a3aa7", "line-width": 3 },
+          paint: { "line-color": "#0b5a4b", "line-width": 3 },
         });
         setMapReady(true);
       });
@@ -171,7 +172,7 @@ export default function FinanceGapExplorer() {
         popupRef.current
           ?.setLngLat(e.lngLat)
           .setHTML(
-            `<div style="font-size:13px;font-weight:600">${p.name}</div><div style="font-size:11px;color:#8a87a0">${p.state}</div>` +
+            `<div style="font-size:13px;font-weight:600">${p.name}</div><div style="font-size:11px;color:#7f8d88">${p.state}</div>` +
               `<div style="margin-top:4px;font-size:12px">${METRICS.find((x) => x.key === m)!.short}: <b>${formatMetric(m, Number(p[m]))}</b></div>`,
           )
           .addTo(map);
@@ -187,9 +188,13 @@ export default function FinanceGapExplorer() {
         if (f) setSelectedId(String(f.id));
       });
       mapRef.current = map;
+      // the canvas can be sized before layout settles (and the detail panel changes the width), so follow the container
+      ro = new ResizeObserver(() => map.resize());
+      ro.observe(mapEl.current);
     })();
     return () => {
       disposed = true;
+      ro?.disconnect();
       mapRef.current?.remove();
       mapRef.current = null;
     };
@@ -260,7 +265,7 @@ export default function FinanceGapExplorer() {
   const metricDef = METRICS.find((m) => m.key === metric)!;
 
   return (
-    <div className="flex h-[calc(100vh-56px)] min-h-[620px]">
+    <div className="flex h-[calc(100vh-63px)] min-h-[620px]">
       {/* ---------------- left rail ---------------- */}
       <aside className="scroll-thin flex w-[330px] shrink-0 flex-col gap-5 overflow-y-auto border-r border-line bg-white p-5">
         <div>
