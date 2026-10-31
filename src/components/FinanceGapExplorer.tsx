@@ -197,15 +197,20 @@ export default function FinanceGapExplorer() {
       ro?.disconnect();
       mapRef.current?.remove();
       mapRef.current = null;
+      // Next keeps pages you navigate away from mounted (React Activity) and re-runs effects when they come back;
+      // the new map has no sources until it fires "load" again
+      setMapReady(false);
     };
   }, []);
 
   // ---- push data to map on country change ----
   useEffect(() => {
     const map = mapRef.current;
-    if (!map || !mapReady || !data) return;
-    (map.getSource("districts") as GeoJSONSource).setData(data.geojson);
-    (map.getSource("admin1") as GeoJSONSource).setData((data as CountryData & { adm1: GeoJSON.FeatureCollection }).adm1);
+    const districts = map?.getSource("districts") as GeoJSONSource | undefined;
+    const admin1Src = map?.getSource("admin1") as GeoJSONSource | undefined;
+    if (!map || !mapReady || !data || !districts || !admin1Src) return;
+    districts.setData(data.geojson);
+    admin1Src.setData((data as CountryData & { adm1: GeoJSON.FeatureCollection }).adm1);
     map.fitBounds(bboxOf(data.geojson.features), { padding: 40, duration: 900 });
   }, [data, mapReady]);
 

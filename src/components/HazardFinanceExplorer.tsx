@@ -203,13 +203,17 @@ export default function HazardFinanceExplorer() {
       ro?.disconnect();
       mapRef.current?.remove();
       mapRef.current = null;
+      // Next keeps pages you navigate away from mounted (React Activity) and re-runs effects when they come back;
+      // the new map has no sources until it fires "load" again
+      setMapReady(false);
     };
   }, []);
 
   useEffect(() => {
+    const source = mapRef.current?.getSource("units") as GeoJSONSource | undefined;
     const map = mapRef.current;
-    if (!map || !mapReady || !data) return;
-    (map.getSource("units") as GeoJSONSource).setData(data.geojson);
+    if (!map || !mapReady || !data || !source) return;
+    source.setData(data.geojson);
     map.fitBounds(bboxOf(data.geojson.features), { padding: 30, duration: 0 });
   }, [data, mapReady]);
 
