@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --color-ink: #1d1b2e;
+  --color-ink-2: #4b4862;
+  --color-ink-3: #8a87a0;
+  --color-paper: #f7f6f2;
+  --color-line: #e6e3dc;
+  --color-brand: #4a3aa7;
+  --color-brand-2: #6c5ce0;
+  --color-brand-soft: #eeebfb;
+  --color-coral: #e8664f;
+  --color-coral-soft: #fdece8;
+  --color-aqua: #1f9e93;
+  --color-aqua-soft: #e3f5f3;
+  --color-amber: #e0a12b;
+}
+
+html,
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-feature-settings: "cv11", "ss01";
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+/* map popups */
+.maplibregl-popup-content {
+  border-radius: 10px !important;
+  padding: 8px 12px !important;
+  box-shadow: 0 6px 24px rgba(29, 27, 46, 0.16) !important;
+  font-family: var(--font-sans);
+}
+.maplibregl-popup-tip {
+  display: none;
+}
+.maplibregl-ctrl-attrib {
+  font-size: 10px;
+}
+
+.scroll-thin::-webkit-scrollbar {
+  width: 6px;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: #d9d5cc;
+  border-radius: 6px;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise {
+  animation: rise 0.45s ease both;
+}
+
+.btn-primary{display:inline-flex;align-items:center;gap:6px;border-radius:12px;background:var(--color-brand);color:#fff;padding:8px 14px;font-size:14px;font-weight:500;transition:background .15s}
+.btn-primary:hover{background:var(--color-brand-2)}
+.btn-ghost{display:inline-flex;align-items:center;gap:6px;border-radius:12px;border:1px solid var(--color-line);background:#fff;padding:8px 12px;font-size:14px;color:var(--color-ink-2);transition:all .15s}
+.btn-ghost:hover{border-color:var(--color-brand);color:var(--color-brand)}
