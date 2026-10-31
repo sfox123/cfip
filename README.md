@@ -48,4 +48,4 @@ Same for `zmb` and `lka`. If the supervisor's matrix already contains DRI / need
 - `gap = need − Σ allocations`; `gap% = gap / need`
 
 ## Stack
-Next.js 16 (App Router), React 19, Tailwind CSS 4, MapLibre GL 6, lucide-react. Basemap © OpenStreetMap © CARTO; boundaries © geoBoundaries (CC BY 4.0).
+Next.js 16 (App Router), React 19, Tailwind CSS 4, MapLibre GL 6, lucide-react. Basemap © Esri, © OpenStreetMap contributors; boundaries © geoBoundaries (CC BY 4.0).

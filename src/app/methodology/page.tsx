@@ -72,7 +72,7 @@ export default function Page() {
         <li>Boundaries: geoBoundaries gbOpen ADM1/ADM2 (India 735 districts, Zambia 116, Sri Lanka 25), simplified.</li>
         <li>Index design: INFORM Risk methodology; IWMI global drought finance gap matrix (DFAT).</li>
         <li>Programmes: national schemes and donor projects (PMFBY, PMKSY, MGNREGS, Atal Bhujal, PoCRA, CASP, SCRALA, TRALARD, CRIWMP, CSIAP…).</li>
-        <li>Basemap: © OpenStreetMap contributors © CARTO.</li>
+        <li>Basemap: Esri World Light Gray Canvas (© Esri, HERE, Garmin, © OpenStreetMap contributors).</li>
       </ul>
     </main>
   );

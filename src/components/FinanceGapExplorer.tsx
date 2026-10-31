@@ -36,16 +36,17 @@ function bboxOf(features: GeoJSON.Feature[]): Bounds {
 const BASE_STYLE = {
   version: 8 as const,
   sources: {
-    carto: {
+    basemap: {
       type: "raster" as const,
-      tiles: ["https://a.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png", "https://b.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png"],
+      tiles: ["https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}"],
       tileSize: 256,
-      attribution: "© OpenStreetMap contributors © CARTO · Boundaries: geoBoundaries",
+      maxzoom: 16,
+      attribution: "Basemap © Esri, HERE, Garmin, © OpenStreetMap contributors · Boundaries: geoBoundaries",
     },
   },
   layers: [
     { id: "bg", type: "background" as const, paint: { "background-color": "#f3f1ec" } },
-    { id: "carto", type: "raster" as const, source: "carto", paint: { "raster-opacity": 0.85 } },
+    { id: "basemap", type: "raster" as const, source: "basemap", paint: { "raster-opacity": 0.85 } },
   ],
 };
 
